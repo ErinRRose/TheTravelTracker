@@ -1,0 +1,10 @@
+<h1>All Destinations</h1>
+
+<% @destination.each do |d| %>
+    <h2><%= link_to d.name, destination_path (d.id) %>
+    <%= link_to "Add a Rating", new_destination_rating_path %>
+    <% end %>
+    <div>
+
+    <p><%= d.description %></p>
+    </div>

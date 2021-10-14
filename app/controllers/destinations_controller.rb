@@ -1,4 +1,6 @@
 class DestinationsController < ApplicationController
+    before_action :set_destination, only:[:show, :edit, :update]
+    before_action :redirect_if_not_logged_in
 
     def new
         @destination = Destination.new
@@ -14,9 +16,20 @@ class DestinationsController < ApplicationController
            render :new
         end
     end 
+
+    def index
+        @destinations = Destination.order_by_rating
+    end
+
     private
 
     def destination_params
         params.require(:destination).permit(:name, :description)
     end
+
+    #def set_destination
+        #@destination =Destination.find_by(params[:id])
+        #redirect_to destination_path if !@destination
+    #end
+
 end

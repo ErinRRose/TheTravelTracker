@@ -1,0 +1,11 @@
+<h2> <%= @destination.name %></h2>
+
+<h4><%= @destination.description %></h4>
+<div>
+<h5>Added by: <%= link_to @destination.user, user_path(@user) %></h5>
+</div>
+
+<%= link_to "Edit #{@destination.name}", edit_destination_path(@destination) if @destination.user == current_user %>
+
+<br></br>
+<%= link_to "See all Ratings", destination_ratings_path(@destination) %>

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :ratings
-  resources :users
-  resources :destinations
+  resources :users, only: [:show]
+  resources :destinations do
+    resources :ratings, only: [:new, :index]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
