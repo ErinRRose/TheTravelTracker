@@ -17,8 +17,12 @@ class DestinationsController < ApplicationController
         end
     end 
 
+    def show
+        @destination = Destination.find_by(id: params[:id])
+    end
+
     def index
-        @destinations = Destination.order_by_rating
+        @destinations = Destination.last(100)
     end
 
     private
@@ -27,9 +31,9 @@ class DestinationsController < ApplicationController
         params.require(:destination).permit(:name, :description)
     end
 
-    #def set_destination
-        #@destination =Destination.find_by(params[:id])
-        #redirect_to destination_path if !@destination
-    #end
+    def set_destination
+        @destination = Destination.find_by(params[:id])
+        redirect_to destination_path if !@destination
+    end
 
 end
