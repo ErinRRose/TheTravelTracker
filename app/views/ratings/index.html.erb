@@ -4,7 +4,7 @@
 
 
 <% if @destination.ratings.where("user_id = ?", session[:user_id]).length() == 0 %>
-<%= link_to "Add Rating", new_destination_rating_path(@destination) %>
+<h3><%= link_to "Add Rating", new_destination_rating_path(@destination) %></h3>
 <% end %>
 <% @destination.ratings.where("user_id = ?", session[:user_id]) do |r| %>
     <h2>My Rating:<%= r.scale %></h2>

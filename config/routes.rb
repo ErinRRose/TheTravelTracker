@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :ratings
   resources :users #, only: [:new, :show]
-  resources :destinations do
+    resources :destinations do
     resources :ratings, only: [:new, :index]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

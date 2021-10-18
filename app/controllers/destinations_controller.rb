@@ -25,6 +25,17 @@ class DestinationsController < ApplicationController
         @destinations = Destination.last(100)
     end
 
+    def edit
+        @destination = Destination.find_by(id: params[:id])
+    end
+  
+    def update
+      if @destination.update(destination_params)
+        redirect_to destination_path(@destination)
+      else
+        render :edit
+      end
+    end
     private
 
     def destination_params
