@@ -1,14 +1,17 @@
 
 
 <h2>Add a Rating!</h2>
-<h3>Rate how much you want to visit <%= %> on scale of 0-5, 5 being the highest on your list of places to visit.</h3>
+<h3>Rate how much you want to visit on scale of 0-5, 5 being the highest on your list of places to visit.</h3>
 <%= form_for(@rating) do |f|%>
-<% if params[:destination_id] %>
-    <%= f.hidden_field :destination_id %>
-<% else %>    
+<%= f.hidden_field :destination_id, :value => params[:destination_id] %> 
 <div>
     <%= f.label :scale %>
-    <%= f.number_field :scale, min:0, max:5 %>
+    <%= f.radio_button :scale, '0' %>
+    <%= f.radio_button :scale, '1' %>
+    <%= f.radio_button :scale, '2' %>
+    <%= f.radio_button :scale, '3' %>
+    <%= f.radio_button :scale, '4' %>
+    <%= f.radio_button :scale, '5' %>
 </div>
 <br>
 <div>

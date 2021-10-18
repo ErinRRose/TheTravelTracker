@@ -7,5 +7,6 @@
 
 <%= link_to "Edit #{@destination.name}", edit_destination_path(@destination) if @destination.user == current_user %>
 
-<br></br>
-<%= link_to "See all Ratings", destination_ratings_path(@destination) %>
+<br />
+
+<%= link_to "See Ratings", destination_ratings_path(@destination) %>

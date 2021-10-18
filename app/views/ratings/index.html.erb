@@ -1,3 +1,21 @@
 
 
 <h2>Ratings for <%= @destination.name %>
+
+
+<% if @destination.ratings.where("user_id = ?", session[:user_id]).length() == 0 %>
+<%= link_to "Add Rating", new_destination_rating_path(@destination) %>
+<% end %>
+<% @destination.ratings.where("user_id = ?", session[:user_id]) do |r| %>
+    <h2>My Rating:<%= r.scale %></h2>
+    <div>
+        <p><%= r.note %></p>
+    </div>
+<% end %>
+
+<% @destination.ratings.each do |r| %>
+    <h2><%= r.user.username %>:<%= r.scale %></h2>
+    <div>
+        <p><%= r.note %></p>
+    </div>
+<% end %>

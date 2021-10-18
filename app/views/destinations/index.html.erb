@@ -1,10 +1,10 @@
 <h1>All Destinations</h1>
 
 <% @destinations.each do |d| %>
-    <h2><%= d.name %></h2>
-    <a href="<%= destination_path(d.id) %>"><i class='fa fa-location-arrow'></i></a>
+    <h2> <a href="<%= destination_path(d.id) %>"><%= d.name %></a></h2>
+    <!-- <a href="<%= destination_path(d.id) %>"><i class='fa fa-location-arrow'></i> 
     <br>
-    <a href="<%= new_destination_rating_path(d.id) %>"><i class='fa fa-star'></i></a>
+    <a href="<%= new_destination_rating_path(d.id) %>"><i class='fa fa-star'></i></a> -->
     <div>
         <p><%= d.description %></p>
     </div>
