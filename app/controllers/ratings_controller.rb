@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-    before_action: redirect_if_not_logged_in
+    #before_action: redirect_if_not_logged_in
     def new
         # if @destination = Destination.find_by_id(params[:destination_id])
         #     @rating = @destination.ratings.build
