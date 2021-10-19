@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   delete '/logout' => 'sessions#destroy'
 
+  get 'auth/:provider/callback' => 'sessions#omniauth'
+
   resources :ratings
   resources :users #, only: [:new, :show]
     resources :destinations do
